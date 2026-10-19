@@ -1,0 +1,25 @@
+﻿# CloudForge Ops Studio - Auto-Healer
+# Foundation Standard: auth-core v1.1.8
+
+# Auth Core (Foundation Standard)
+cloudforge-auth_core==1.1.8
+
+# Web Framework
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+
+# Data Validation
+pydantic>=2.0.0
+
+# HTTP Clients (สำหรับ Connectors)
+httpx>=0.25.0
+aiohttp>=3.9.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+
+# Development
+black>=23.0.0
+ruff>=0.1.0
