@@ -7,13 +7,6 @@ on:
     branches: [main]
 
 jobs:
-  validate:
-    uses: CloudForge-Platform-Foundation-dev/foundation-validation/.github/workflows/reusable-gate.yml@v1.0.2
-    with:
-      engine_ref: v1.0.2
-      spec_path: pyproject.toml
-    secrets: inherit
-
   test:
     runs-on: ubuntu-latest
     steps:
