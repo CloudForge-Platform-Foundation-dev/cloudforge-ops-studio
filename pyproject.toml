@@ -1,4 +1,4 @@
-﻿[build-system]
+[build-system]
 requires = ["setuptools>=68.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
@@ -14,7 +14,7 @@ authors = [
 ]
 
 dependencies = [
-    "cloudforge-auth_core==1.1.8",
+    "cloudforge-auth-core @ git+https://github.com/CloudForge-Platform-Foundation-dev/cloudforge-auth-core.git@v1.1.8",
     "fastapi>=0.104.0",
     "uvicorn[standard]>=0.24.0",
     "pydantic>=2.0.0",

@@ -1,8 +1,8 @@
-﻿# CloudForge Ops Studio - Auto-Healer
+# CloudForge Ops Studio - Auto-Healer
 # Foundation Standard: auth-core v1.1.8
 
 # Auth Core (Foundation Standard)
-cloudforge-auth_core==1.1.8
+cloudforge-auth-core @ git+https://github.com/CloudForge-Platform-Foundation-dev/cloudforge-auth-core.git@v1.1.8
 
 # Web Framework
 fastapi>=0.104.0
