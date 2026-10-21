@@ -1,0 +1,121 @@
+{
+  "info": {
+    "contact": {
+      "email": "niphan1000@gmail.com",
+      "name": "niphan1000-cyber1000"
+    },
+    "description": "CloudForge Ops Studio - Auto-Healer",
+    "license": {
+      "identifier": "MIT",
+      "name": "MIT"
+    },
+    "title": "cloudforge-ops-studio",
+    "version": "0.1.0",
+    "x-domain": "ops",
+    "x-governance-id": "CFG-OPS-001",
+    "x-owner": "niphan1000-cyber1000"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/": {
+      "get": {
+        "description": "Return service name, version and status.",
+        "operationId": "root__get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [],
+        "summary": "Root",
+        "tags": [
+          "meta"
+        ]
+      }
+    },
+    "/health": {
+      "get": {
+        "description": "Return service health and version.",
+        "operationId": "health_check_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [],
+        "summary": "Health Check",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/live": {
+      "get": {
+        "description": "Return service liveness.",
+        "operationId": "liveness_check_live_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [],
+        "summary": "Liveness Check",
+        "tags": [
+          "health"
+        ]
+      }
+    },
+    "/ready": {
+      "get": {
+        "description": "Return service readiness.",
+        "operationId": "readiness_check_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "security": [],
+        "summary": "Readiness Check",
+        "tags": [
+          "health"
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "Local development",
+      "url": "http://localhost:8000"
+    }
+  ],
+  "tags": [
+    {
+      "description": "Liveness, readiness and health probes.",
+      "name": "health"
+    },
+    {
+      "description": "Service metadata.",
+      "name": "meta"
+    }
+  ]
+}
