@@ -11,6 +11,8 @@
     },
     "title": "cloudforge-ops-studio",
     "version": "0.1.0",
+    "x-domain": "ops",
+    "x-governance-id": "CFG-OPS-001",
     "x-owner": "niphan1000-cyber1000"
   },
   "openapi": "3.1.0",
@@ -29,6 +31,7 @@
             "description": "Successful Response"
           }
         },
+        "security": [],
         "summary": "Root",
         "tags": [
           "meta"
@@ -49,6 +52,7 @@
             "description": "Successful Response"
           }
         },
+        "security": [],
         "summary": "Health Check",
         "tags": [
           "health"
@@ -69,6 +73,7 @@
             "description": "Successful Response"
           }
         },
+        "security": [],
         "summary": "Liveness Check",
         "tags": [
           "health"
@@ -89,11 +94,28 @@
             "description": "Successful Response"
           }
         },
+        "security": [],
         "summary": "Readiness Check",
         "tags": [
           "health"
         ]
       }
     }
-  }
+  },
+  "servers": [
+    {
+      "description": "Local development",
+      "url": "http://localhost:8000"
+    }
+  ],
+  "tags": [
+    {
+      "description": "Liveness, readiness and health probes.",
+      "name": "health"
+    },
+    {
+      "description": "Service metadata.",
+      "name": "meta"
+    }
+  ]
 }

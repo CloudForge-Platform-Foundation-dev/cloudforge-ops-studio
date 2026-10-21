@@ -10,25 +10,25 @@ app = FastAPI(
 )
 
 
-@app.get("/health", tags=["health"])
+@app.get("/health", tags=["health"], openapi_extra={"security": []})
 async def health_check():
     """Return service health and version."""
     return {"status": "healthy", "version": settings.app_version}
 
 
-@app.get("/ready", tags=["health"])
+@app.get("/ready", tags=["health"], openapi_extra={"security": []})
 async def readiness_check():
     """Return service readiness."""
     return {"status": "ready"}
 
 
-@app.get("/live", tags=["health"])
+@app.get("/live", tags=["health"], openapi_extra={"security": []})
 async def liveness_check():
     """Return service liveness."""
     return {"status": "alive"}
 
 
-@app.get("/", tags=["meta"])
+@app.get("/", tags=["meta"], openapi_extra={"security": []})
 async def root():
     """Return service name, version and status."""
     return {
@@ -50,10 +50,19 @@ def custom_openapi():
         version=app.version,
         description=app.description,
         routes=app.routes,
+        tags=[
+            {"name": "health", "description": "Liveness, readiness and health probes."},
+            {"name": "meta", "description": "Service metadata."},
+        ],
+        servers=[
+            {"url": "http://localhost:8000", "description": "Local development"},
+        ],
         contact={"name": OWNER, "email": "niphan1000@gmail.com"},
         license_info={"name": "MIT", "identifier": "MIT"},
     )
     schema["info"]["x-owner"] = OWNER
+    schema["info"]["x-domain"] = "ops"
+    schema["info"]["x-governance-id"] = "CFG-OPS-001"
     app.openapi_schema = schema
     return schema
 
